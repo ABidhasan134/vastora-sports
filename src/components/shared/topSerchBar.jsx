@@ -4,7 +4,7 @@ import React from "react";
 import SearchBar from "./searchBar";
 import { usePathname } from "next/navigation";
 import { IoMenu } from "react-icons/io5";
-import { CgProfile } from "react-icons/cg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const TopSerchBar = () => {
   const pathname = usePathname();
@@ -39,25 +39,25 @@ const TopSerchBar = () => {
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
             {navItemList.map((item, index) => {
-            return (
-              <li
-                key={index}
-                className={`text-gray-500 hover:text-black font-bold pb-3 ${
-                  pathname === "/"
-                    ? "hover:border-b-2 hover:border-b-black"
-                    : ""
-                } ${
-                  pathname === item.url
-                    ? "text-black border-b-2 border-b-black"
-                    : ""
-                }`}
-              >
-                <Link href={item.url} className="hover:bg-transparent">
-                  {item.title}
-                </Link>
-              </li>
-            );
-          })}
+              return (
+                <li
+                  key={index}
+                  className={`text-gray-500 hover:text-black font-bold pb-3 ${
+                    pathname === "/"
+                      ? "hover:border-b-2 hover:border-b-black"
+                      : ""
+                  } ${
+                    pathname === item.url
+                      ? "text-black border-b-2 border-b-black"
+                      : ""
+                  }`}
+                >
+                  <Link href={item.url} className="hover:bg-transparent">
+                    {item.title}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </div>
         <button>
@@ -92,13 +92,28 @@ const TopSerchBar = () => {
           })}
         </ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-2">
         <SearchBar></SearchBar>
-        <button>
-          <CgProfile className="h-[30px] w-[30px]"></CgProfile>
+        <button className="w-[40px] h-[40px] rounded-full flex items-center justify-center hover:bg-gray-100">
+          <img
+            src="icons/user.png"
+            alt="user icon"
+            className="h-[25px] w-[25px]"
+          />
         </button>
         <button className="hover:cursor-pointer">
-       <img src="icons/animetCart.gif" alt="cart icon" className="h-[50px] w-[50px]" />
+          <img
+            src="icons/animetCart.gif"
+            alt="cart icon"
+            className="h-[35px] w-[35px]"
+          />
+        </button>
+        <button>
+          <img
+            src="icons/heart.png"
+            alt="heart icon"
+            className="h-[25px] w-[25px]"
+          />
         </button>
       </div>
     </div>

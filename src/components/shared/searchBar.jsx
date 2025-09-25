@@ -4,12 +4,12 @@ const SearchBar = () => {
   return (
    
 <div
-  className="flex items-center border w-80 focus-within:border-[#283d9e] transition duration-300 pr-3 gap-2 bg-white border-gray-500/30 h-[46px] rounded-[5px] overflow-hidden"
+  className="flex items-center border  focus-within:border-[#283d9e] transition duration-300 pr-3 gap-2 bg-white border-gray-500/30 h-[46px] rounded-[5px] overflow-hidden"
 >
   <input
     type="text"
     placeholder="Search for products"
-    class="w-full h-full pl-4 outline-none placeholder-gray-500 text-sm"
+    className="max-w-96 h-full pl-4 outline-none placeholder-gray-500 text-sm"
   />
   <svg
     xmlns="http://www.w3.org/2000/svg"
