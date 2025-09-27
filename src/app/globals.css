@@ -155,5 +155,12 @@
   body {
     @apply bg-[#F5FBFF] text-foreground ;
   }
+  .heroCoruselContener{
+    @apply flex relative justify-center;
+  }
+  .hTitle{
+    @apply text-3xl font-bold w-sm mt-20
+  }
+  
   
 }
