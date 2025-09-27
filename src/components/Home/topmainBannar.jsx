@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Autoplay from "embla-carousel-autoplay"
+import * as React from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 import {
   Carousel,
@@ -9,21 +9,21 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
+} from "@/components/ui/carousel";
 
 export function TopmainBannar() {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
-  )
+  );
 
-  const [api, setApi] = React.useState(null)
-  const [current, setCurrent] = React.useState(0)
+  const [api, setApi] = React.useState(null);
+  const [current, setCurrent] = React.useState(0);
 
   React.useEffect(() => {
-    if (!api) return
-    setCurrent(api.selectedScrollSnap()) 
-    api.on("select", () => setCurrent(api.selectedScrollSnap()))
-  }, [api])
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => setCurrent(api.selectedScrollSnap()));
+  }, [api]);
 
   return (
     <div className="relative flex flex-col justify-center items-center">
@@ -33,9 +33,12 @@ export function TopmainBannar() {
           <button
             key={index}
             onClick={() => api && api.scrollTo(index)}
-            className={`border-2 rounded-full overflow-hidden transition
-              ${current === index ? "border-blue-600 p-1" : "border-transparent"}
-            `}
+            className={`border-2 rounded-full overflow-hidden transition ${
+              current === index ? "p-1" : "border-transparent"
+            }`}
+            style={{
+              borderColor: current === index ? data.color : "transparent",
+            }}
           >
             <img
               src={data.image}
@@ -64,11 +67,11 @@ export function TopmainBannar() {
                 </div>
 
                 <figure className="flex justify-start">
-                                    <img
-                  src={data.image}
-                  alt={data.title}
-                  className="h-[450px] border-2 border-green-500 "
-                />
+                  <img
+                    src={data.image}
+                    alt={data.title}
+                    className="h-[450px] border-2 border-green-500 "
+                  />
                 </figure>
               </div>
             </CarouselItem>
@@ -78,7 +81,7 @@ export function TopmainBannar() {
         <CarouselNext /> */}
       </Carousel>
     </div>
-  )
+  );
 }
 
 const bannarDampData = [
@@ -88,11 +91,14 @@ const bannarDampData = [
       "Show your Blues pride with this stunning Chelsea home kit perfect for matchdays, collections, or streetwear style.",
     image:
       "https://i.ibb.co.com/TqHydyPN/FB-IMG-1755009637108-removebg-preview.png",
+    color: "#034694",
   },
   {
     title: "🔥 Man United Away Jersey | Adidas Special",
     Subtitle: "Rep the Red Devils with the new away edition.",
-    image: "https://i.ibb.co.com/m5gB2TFt/518303222-1178504530972298-5097577727941577642-n-removebg-preview.png",
+    image:
+      "https://i.ibb.co.com/m5gB2TFt/518303222-1178504530972298-5097577727941577642-n-removebg-preview.png",
+    color: "#DA291C",
   },
   {
     title: "🔴 Liverpool Home Jersey | Nike Tradition",
@@ -100,6 +106,7 @@ const bannarDampData = [
       "The classic red of Anfield — feel the Kop energy with this official Nike design.",
     image:
       "https://i.ibb.co.com/gZVt4qPK/FB-IMG-1755009702219-removebg-preview.png",
+    color: "#C8102E",
   },
   {
     title: "🌴 Inter Miami Home Jersey | Adidas Messi Edition",
@@ -107,6 +114,7 @@ const bannarDampData = [
       "Iconic pink and black — stand out with the MLS jersey Messi made legendary.",
     image:
       "https://i.ibb.co.com/JFbTCRRc/517012513-1170979225058162-6701650183084489769-n-removebg-preview.png",
+    color: "#F6B9D0",
   },
   {
     title: "💎 PSG Home Jersey | Jordan Collaboration",
@@ -114,5 +122,6 @@ const bannarDampData = [
       "Parisian elegance meets Jordan brand — perfect for Parc des Princes nights.",
     image:
       "https://i.ibb.co.com/gFLMTh5R/548195390-1234444362044981-4928521021827126404-n-removebg-preview.png",
+    color: "#004170",
   },
-]
+];
